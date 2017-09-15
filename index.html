@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Hangman</title>
+    <script src="assets/javascript/game.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body  onload="reset();">
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1> Around the World with HangMan!! </h1>
+    </div>
+<div class="row">
+      <div class="col-md-12 panel text-center">
+      <p class="myText">Press Any key to Continue!</p>
+      </div>
+</div>
+<div class="row">
+
+    <div class="col-md-2 panel" id="wins">
+                <h2>Wins:</h2>
+    </div>
+
+    <div class="col-md-6 col-md-offset-1 panel" id="letters_guessed">
+            <h2>Letters Guessed:</h2>
+    </div>
+
+    <div class="col-md-2 col-md-offset-1 panel" id="losses">
+        <h2>Losses:</h2>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-5 jumbotron" id="current_word">
+        <h2> Current Word: </h2>
+    </div>
+    <div class="col-md-5 jumbotron col-md-offset-2" id="numberOfGuessesRemaining">
+        <h2> Guesses Remaining: </h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 jumbotron text-center">
+        <canvas id="hangmanDrawing" width="400" height="400"></canvas>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

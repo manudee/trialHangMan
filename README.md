@@ -1,1 +1,1 @@
-# trialHangman
+# Hangman-Game
