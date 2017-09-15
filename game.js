@@ -19,7 +19,6 @@ computerPicked = computerChoice[Math.floor(Math.random() * computerChoice.length
 
 
 var snd = new Audio("assets/images/Victory Sound Effect.mp3"); // buffers automatically when created
-
 var gameOn = false;
 
 
@@ -36,7 +35,8 @@ function reset(){
       currentWord[i] = "-";
       
     }
-    var currentWord_html = "<h2>currentWord: " + currentWord + "</h2>";
+
+var currentWord_html = "<h2>currentWord: " + currentWord + "</h2>";
     document.querySelector("#current_word").innerHTML = currentWord_html;
 
 var wins_html = "<h2>Wins: " + wins + "</h2>";
@@ -189,10 +189,12 @@ function leftHand2(){
 function rightHand2(){
   var c = document.getElementById("hangmanDrawing");
     if (c.getContext) {
+      //console.log("In right hand function");
             var ctx = c.getContext('2d');
            ctx.moveTo(200,300)
            ctx.lineTo(250,350);
            ctx.stroke();
+
 
 }
 
@@ -265,8 +267,9 @@ function addParts(num){
       leftHand2();
       break;
     case 0:
+      console.log("inCase " + numberOfGuessesRemaining);
       rightHand2();
-     
+      console.log("rIGHT HAND2 DRAWN " + numberOfGuessesRemaining);
       break;
 
    
@@ -310,27 +313,24 @@ if(numberOfGuessesRemaining!=0 || ((currentWord.join("")) != computerPicked)){
       }
 
 else {
-      if(!(letterAlreadyGuessed.includes(userGuessed))){
+      if(!(letterAlreadyGuessed.includes(userGuessed)) && numberOfGuessesRemaining!=0  ){
            letterAlreadyGuessed.push(userGuessed); 
+           console.log("Guesses remaining BEGINNING --" + numberOfGuessesRemaining);
            numberOfGuessesRemaining--;
-
-          addParts(numberOfGuessesRemaining);
-          
-
-
+           console.log("Guesses remaining BEFORE ADDING PARTS -- " + numberOfGuessesRemaining);
+           addParts(numberOfGuessesRemaining);
+           console.log("Guesses remaining after ADDING PARTS -- " + numberOfGuessesRemaining);
     }
 
 }
 
-if(numberOfGuessesRemaining ===0 ){
+if(numberOfGuessesRemaining === 0 ){
+    console.log("Guesses are 0");
     addParts(numberOfGuessesRemaining);
     losses++;
-    alert("You Lost!");
-
-    reset();
- 
-
-
+    console.log("You Lost!");
+   reset();
+   
 }
 
 else if ((currentWord.join("")) === computerPicked) {
@@ -342,9 +342,10 @@ else if ((currentWord.join("")) === computerPicked) {
     victoryImage(computerPicked);
     
     console.log("I am done with comparison, calling reset now");
-    reset();
-
+   
+    reset()
  }
+
 
 
 currentWord_html = "<h2>currentWord: " + currentWord + "</h2>";
