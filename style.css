@@ -1,0 +1,28 @@
+#hangmanDrawing{
+
+	background-color: #9fced3;
+	
+}
+
+body{
+	background-image: url('../images/sea.jpg');
+	width: 100%;
+}
+
+canvas{
+
+	border: 1px solid black;
+	padding: 10px;
+	background-image: url()
+}
+
+
+
+
+.jumbotron, .panel{
+	background-color: #78b698 !important;
+}
+
+.panel {
+	color: blue solid 5px!important;
+}
